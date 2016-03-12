@@ -44,7 +44,27 @@ SpecialCounter::~SpecialCounter()
 {
 }
 
+void SpecialCounter:: operator++() {
+	inc += 1;
+}
+
+void SpecialCounter:: operator++(int inc_in) {
+	inc += 1;
+}
+
+void SpecialCounter:: operator--() {
+	dec += 1;
+}
+
+void SpecialCounter:: operator--(int dec_in) {
+	dec += 1;
+}
+
+
 int main() {
 	SpecialCounter Counter;
+	Counter.Start(500);
+	Counter.Count();
+	Counter--;
 	Counter.Count();
 }

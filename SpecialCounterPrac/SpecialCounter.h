@@ -14,6 +14,10 @@ public:
 	void stepInc(int stepSize);
 	void stepDec(int stepSize);
 	void Count();
+	void operator++();
+	void operator++(int inc_in);
+	void operator--();
+	void operator--(int dec_in);
 	~SpecialCounter();
 };
 
