@@ -1,6 +1,7 @@
 #include "SpecialCounter.h"
+#include <iostream>
 
-
+using namespace std;
 
 SpecialCounter::SpecialCounter(int start_in = 0, int stop_in = 255, int inc_in = 1, int dec_in = 1) 
 {
@@ -25,6 +26,25 @@ void SpecialCounter::stepDec(int stepSize) {
 	dec = stepSize;
 }
 
+void SpecialCounter::Count() {
+	int i;
+	if (start > stop) {
+		for (i = start; i >=stop; i = i - dec) {
+			cout << i << endl;
+		}
+	}
+	else {
+		for (i = start; i <= stop; i = i + inc) {
+			cout << i << endl;
+		}
+	}
+}
+
 SpecialCounter::~SpecialCounter()
 {
+}
+
+int main() {
+	SpecialCounter Counter;
+	Counter.Count();
 }
