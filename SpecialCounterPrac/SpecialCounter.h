@@ -13,11 +13,11 @@ public:
 	void Stop(int stop_in);
 	void stepInc(int stepSize);
 	void stepDec(int stepSize);
-	void Count();
-	void operator++();
-	void operator++(int inc_in);
-	void operator--();
-	void operator--(int dec_in);
+	int Count();
+	int operator++();
+	int operator++(int inc_in);
+	int operator--();
+	int operator--(int dec_in);
 	~SpecialCounter();
 };
 

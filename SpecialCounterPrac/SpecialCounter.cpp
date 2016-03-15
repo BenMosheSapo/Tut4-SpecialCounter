@@ -5,6 +5,7 @@ using namespace std;
 
 SpecialCounter::SpecialCounter(int start_in = 0, int stop_in = 255, int inc_in = 1, int dec_in = 1) 
 {
+	curVal = start_in;
 	start = start_in;
 	stop = stop_in;
 	inc = inc_in;
@@ -26,45 +27,51 @@ void SpecialCounter::stepDec(int stepSize) {
 	dec = stepSize;
 }
 
-void SpecialCounter::Count() {
-	int i;
+int SpecialCounter::Count() {
 	if (start > stop) {
-		for (i = start; i >=stop; i = i - dec) {
-			cout << i << endl;
-		}
+		if (curVal += inc <= stop)
+			curVal += inc;
 	}
 	else {
-		for (i = start; i <= stop; i = i + inc) {
-			cout << i << endl;
-		}
+		if (curVal -= dec >= start)
+			curVal -= dec;
 	}
+	return curVal;
 }
 
 SpecialCounter::~SpecialCounter()
 {
 }
 
-void SpecialCounter:: operator++() {
-	inc += 1;
+int SpecialCounter:: operator++() {
+	if (curVal+=inc <=stop)
+	curVal += inc;
+	return curVal;
 }
 
-void SpecialCounter:: operator++(int inc_in) {
-	inc += 1;
+int SpecialCounter:: operator++(int inc_in) {
+	int temp = curVal;
+	if (curVal += inc <= stop)
+	curVal += inc;
+	return temp;
 }
 
-void SpecialCounter:: operator--() {
-	dec += 1;
+int SpecialCounter:: operator--() {
+	if (curVal -= dec >= start)
+	curVal -= dec;
+	return curVal;
 }
 
-void SpecialCounter:: operator--(int dec_in) {
-	dec += 1;
+int SpecialCounter:: operator--(int dec_in) {
+	int temp = curVal;
+	if (curVal -= dec >= start)
+		curVal -= dec;
+	return temp;
 }
 
 
 int main() {
 	SpecialCounter Counter;
-	Counter.Start(500);
 	Counter.Count();
-	Counter--;
 	Counter.Count();
 }
