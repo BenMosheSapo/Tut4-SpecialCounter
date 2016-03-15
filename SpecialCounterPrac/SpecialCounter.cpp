@@ -27,17 +27,6 @@ void SpecialCounter::stepDec(int stepSize) {
 	dec = stepSize;
 }
 
-int SpecialCounter::Count() {
-	if (start > stop) {
-		if (curVal += inc <= stop)
-			curVal += inc;
-	}
-	else {
-		if (curVal -= dec >= start)
-			curVal -= dec;
-	}
-	return curVal;
-}
 
 SpecialCounter::~SpecialCounter()
 {
@@ -72,6 +61,4 @@ int SpecialCounter:: operator--(int dec_in) {
 
 int main() {
 	SpecialCounter Counter;
-	Counter.Count();
-	Counter.Count();
 }

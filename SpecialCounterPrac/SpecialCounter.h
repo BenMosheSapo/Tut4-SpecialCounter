@@ -13,7 +13,6 @@ public:
 	void Stop(int stop_in);
 	void stepInc(int stepSize);
 	void stepDec(int stepSize);
-	int Count();
 	int operator++();
 	int operator++(int inc_in);
 	int operator--();
